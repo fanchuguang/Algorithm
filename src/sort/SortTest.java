@@ -11,32 +11,40 @@ import java.util.Random;
 public class SortTest {
 
     public static void main(String[] args) {
+        for (int i = 0; i < 200; i++) {
+            doFetchTest();
+        }
+    }
+
+    private static void doFetchTest() {
         int[] positiveArr = randomArr(true, 100);
-        int[] negativeArr = randomArr(false, 100);
+        int[] negativeArr = randomArr(false, 4);
 
-        int[] resultArr = Arrays.copyOfRange(negativeArr,0,100);
+        int[] resultArr1 = Arrays.copyOfRange(negativeArr,0,4);
+        int[] resultArr = Arrays.copyOfRange(negativeArr,0,4);
 
-        BubbleSort.sort(resultArr);
+//        BubbleSort.sort(resultArr);
+//        InsertSort.sort(resultArr);
+//        SelectSort.sort(resultArr);
+        QuicklySort.sort(resultArr);
 
         Arrays.sort(negativeArr);
-        checkSort(resultArr,negativeArr);
+        try {
+            checkSort(resultArr,negativeArr);
+        } catch (Exception e) {
+            System.out.println("排序源:"+Arrays.toString(resultArr1));
+            System.out.println("排序结果:"+Arrays.toString(resultArr));
+        }
     }
 
 
     //对数器
-    public static void checkSort(int[] arr,int[] targetArr){
+    public static void checkSort(int[] arr,int[] targetArr) throws Exception{
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] != targetArr[i]){
-                System.out.println("------------------------------------------------");
-                System.out.println("-----------------排序失败！！！！------------------");
-                break;
+                throw new Exception("排序失败");
             }
         }
-
-        System.out.println(Arrays.toString(arr));
-        System.out.println(Arrays.toString(targetArr));
-
-        System.out.println("------------------------------------------------");
     }
 
 

@@ -26,7 +26,9 @@ public class SortTest {
 //        BubbleSort.sort(resultArr);
 //        InsertSort.sort(resultArr);
 //        SelectSort.sort(resultArr);
-        QuicklySort.sort(resultArr);
+//        QuicklySort.sort(resultArr);
+//        ShellSort.sort(resultArr);
+        resultArr = MergeSort.sort(resultArr);
 
         Arrays.sort(negativeArr);
         try {

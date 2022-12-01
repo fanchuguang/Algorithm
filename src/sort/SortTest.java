@@ -18,17 +18,18 @@ public class SortTest {
 
     private static void doFetchTest() {
         int[] positiveArr = randomArr(true, 100);
-        int[] negativeArr = randomArr(false, 4);
+        int[] negativeArr = randomArr(false, 100);
 
-        int[] resultArr1 = Arrays.copyOfRange(negativeArr,0,4);
-        int[] resultArr = Arrays.copyOfRange(negativeArr,0,4);
+        int[] resultArr1 = Arrays.copyOfRange(negativeArr,0,100);
+        int[] resultArr = Arrays.copyOfRange(negativeArr,0,100);
 
 //        BubbleSort.sort(resultArr);
 //        InsertSort.sort(resultArr);
 //        SelectSort.sort(resultArr);
 //        QuicklySort.sort(resultArr);
 //        ShellSort.sort(resultArr);
-        resultArr = MergeSort.sort(resultArr);
+//        resultArr = MergeSort.sort(resultArr);
+        HeapSort.sort(resultArr);
 
         Arrays.sort(negativeArr);
         try {
